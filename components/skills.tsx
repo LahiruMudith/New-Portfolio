@@ -3,6 +3,11 @@
 export function Skills() {
   const skills = [
     {
+      name: "Java",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+      url: "https://www.java.com/en/",
+    },
+    {
       name: "HTML5",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
       url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
@@ -18,9 +23,9 @@ export function Skills() {
       url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     },
     {
-      name: "Java",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-      url: "https://www.java.com/en/",
+      name: "Python",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+      url: "https://www.python.org/",
     },
     {
       name: "React",
@@ -33,9 +38,24 @@ export function Skills() {
       url: "https://nodejs.org/en",
     },
     {
+      name: "Express.js",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg",
+      url: "https://expressjs.com/",
+    },
+    {
+      name: "Spring & Spring Boot",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
+      url: "https://spring.io/",
+    },
+    {
       name: "MySQL",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
       url: "https://www.mysql.com/",
+    },
+    {
+      name: "MongoDB",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg",
+      url: "https://www.mongodb.com/",
     },
     {
       name: "Git",
@@ -53,19 +73,34 @@ export function Skills() {
       url: "https://getbootstrap.com/",
     },
     {
-      name: "Canva",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg",
-      url: "https://www.canva.com/",
-    },
-    {
       name: "IntelliJ IDEA",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg",
       url: "https://www.jetbrains.com/idea/",
     },
     {
+      name: "PyCharm",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pycharm/pycharm-original.svg",
+      url: "https://www.jetbrains.com/pycharm/",
+    },
+    {
       name: "VS Code",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
       url: "https://code.visualstudio.com/",
+    },
+    {
+      name: "Figma",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
+      url: "https://www.figma.com/",
+    },
+    {
+      name: "Photoshop",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg",
+      url: "https://en.wikipedia.org/wiki/Adobe_Photoshop",
+    },
+    {
+      name: "Canva",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg",
+      url: "https://www.canva.com/",
     },
   ]
 

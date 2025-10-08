@@ -46,11 +46,11 @@ export function Hero() {
                   <Github className="h-5 w-5" />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="icon">
-                <a href="https://www.fiverr.com/s/38lzj79" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="h-5 w-5" />
-                </a>
-              </Button>
+              {/*<Button asChild variant="outline" size="icon">*/}
+              {/*  <a href="https://www.fiverr.com/s/38lzj79" target="_blank" rel="noopener noreferrer">*/}
+              {/*    <ExternalLink className="h-5 w-5" />*/}
+              {/*  </a>*/}
+              {/*</Button>*/}
             </div>
           </div>
 

@@ -32,7 +32,7 @@ export function Navigation() {
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <a href="#home" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
-          LM
+          <img src={"https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png"} width={30}/>
         </a>
 
         {/* Desktop Navigation */}
