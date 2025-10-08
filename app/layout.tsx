@@ -7,43 +7,65 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Lahiru Mudith | Web Developer Portfolio | IJSE Student",
-  description:
-      "Lahiru Mudith - Web developer, freelancer on Fiverr and student at IJSE. Check out my projects, skills, and contact details.",
-  keywords: [
-    "Lahiru Mudith",
-    "IJSE Student",
-    "Web Developer",
-    "Fiverr Freelancer",
-    "Portfolio",
-    "HTML CSS JS",
-    "Sri Lanka",
-  ],
-  authors: [{ name: "Lahiru Mudith" }],
-  openGraph: {
-    title: "Lahiru Mudith - Web Developer Portfolio",
-    description: "Visit Lahiru Mudith's portfolio website to explore projects, skills, and contact information.",
-    type: "website",
-  },
-  generator: "v0.app",
-  icons: {
-    icon: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
-    shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
-    apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
-  },
+    title: "Lahiru Mudith | Web Developer Portfolio | IJSE Student",
+    description:
+        "Lahiru Mudith - Web developer, freelancer on Fiverr and student at IJSE. Check out my projects, skills, and contact details.",
+    keywords: [
+        "Lahiru Mudith",
+        "IJSE Student",
+        "Web Developer",
+        "Fiverr Freelancer",
+        "Portfolio",
+        "HTML CSS JS",
+        "Sri Lanka",
+    ],
+    authors: [{ name: "Lahiru Mudith" }],
+    openGraph: {
+        title: "Lahiru Mudith - Web Developer Portfolio",
+        description: "Visit Lahiru Mudith's portfolio website to explore projects, skills, and contact information.",
+        url: "https://lahirumudith.dev", // Replace with your actual domain!
+        images: [
+            {
+                url: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+                width: 400,
+                height: 400,
+                alt: "Lahiru Mudith Logo",
+            },
+        ],
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Lahiru Mudith - Web Developer Portfolio",
+        description: "Check out Lahiru Mudith's web development portfolio, projects, and contact details.",
+        images: [
+            "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png"
+        ],
+        creator: "@yourtwitterhandle"
+    },
+    generator: "v0.app",
+    icons: {
+        icon: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+        shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+        apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+    },
+    metadataBase: new URL("https://lahirumudith.dev"), // Replace with your actual domain!
+    alternates: {
+        canonical: "https://lahirumudith.dev", // Replace with your actual domain!
+    }
 }
 
 export default function RootLayout({
-                                     children,
+                                       children,
                                    }: Readonly<{
-  children: React.ReactNode
+    children: React.ReactNode
 }>) {
-  return (
-      <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-      <Suspense fallback={null}>{children}</Suspense>
-      <Analytics />
-      </body>
-      </html>
-  )
+    return (
+        <html lang="en">
+        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        <Suspense fallback={null}>{children}</Suspense>
+        <Analytics />
+        </body>
+        </html>
+    )
 }
