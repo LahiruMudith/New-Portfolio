@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github } from "lucide-react"
+import Image from "next/image";
 
 export function Projects() {
   const projects = [
@@ -87,7 +88,7 @@ export function Projects() {
             {projects.map((project, index) => (
               <Card key={index} className="overflow-hidden group hover:shadow-xl transition-shadow duration-300">
                 <div className="relative h-48 bg-muted overflow-hidden">
-                  <img
+                  <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

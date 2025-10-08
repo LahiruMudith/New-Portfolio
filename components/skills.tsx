@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image";
+
 export function Skills() {
   const skills = [
     {
@@ -125,7 +127,7 @@ export function Skills() {
                 className="group flex flex-col items-center gap-3 p-4 rounded-lg hover:bg-muted/50 transition-all duration-300"
               >
                 <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-muted group-hover:scale-110 transition-transform duration-300">
-                  <img src={skill.icon || "/placeholder.svg"} alt={skill.name} className="w-12 h-12" />
+                  <Image src={skill.icon || "/placeholder.svg"} alt={skill.name} className="w-12 h-12" />
                 </div>
                 <span className="text-xs text-center text-muted-foreground group-hover:text-foreground transition-colors">
                   {skill.name}

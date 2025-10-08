@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { GraduationCap, Briefcase } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image";
 
 export function About() {
   const [activeTab, setActiveTab] = useState<"education" | "experience">("education")
@@ -65,7 +66,7 @@ export function About() {
                 <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 bg-card">
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="w-32 h-32 rounded-lg bg-muted flex items-center justify-center overflow-hidden">
-                      <img
+                      <Image
                         src={item.logo || "/placeholder.svg"}
                         alt={item.institution}
                         className="w-full h-full object-contain"

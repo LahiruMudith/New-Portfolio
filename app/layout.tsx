@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Lahiru Mudith - Web Developer Portfolio",
         description: "Visit Lahiru Mudith's portfolio website to explore projects, skills, and contact information.",
-        url: "https://lahirumudith.dev", // Replace with your actual domain!
+        url: "https://www.lahirumudith.me",
         images: [
             {
                 url: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
         shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
         apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
     },
-    metadataBase: new URL("https://lahirumudith.dev"), // Replace with your actual domain!
+    metadataBase: new URL("https://www.lahirumudith.me"),
     alternates: {
-        canonical: "https://lahirumudith.dev", // Replace with your actual domain!
+        canonical: "https://www.lahirumudith.me",
     }
 }
 
