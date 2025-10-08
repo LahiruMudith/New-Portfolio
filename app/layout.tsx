@@ -9,7 +9,7 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Lahiru Mudith | Web Developer Portfolio | IJSE Student",
   description:
-    "Lahiru Mudith - Web developer, freelancer on Fiverr and student at IJSE. Check out my projects, skills, and contact details.",
+      "Lahiru Mudith - Web developer, freelancer on Fiverr and student at IJSE. Check out my projects, skills, and contact details.",
   keywords: [
     "Lahiru Mudith",
     "IJSE Student",
@@ -26,19 +26,24 @@ export const metadata: Metadata = {
     type: "website",
   },
   generator: "v0.app",
+  icons: {
+    icon: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+    shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+    apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+  },
 }
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+      <html lang="en">
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+      <Suspense fallback={null}>{children}</Suspense>
+      <Analytics />
       </body>
-    </html>
+      </html>
   )
 }
