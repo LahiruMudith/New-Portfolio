@@ -70,7 +70,7 @@ export default function RootLayout({
         <head>
             {/*<link rel="icon" href="../assets/favicon.ico" type="image/x-icon"/>*/}
             {/* Optional: add PNG or SVG for more formats */}
-             <link rel="icon" href="../assets/favicon.png" type="image/png" />
+            {/* <link rel="icon" href="../assets/favicon.png" type="image/png"/>*/}
         </head>
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
