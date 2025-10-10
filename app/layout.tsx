@@ -46,14 +46,13 @@ export const metadata: Metadata = {
                 alt: "Lahiru Mudith Logo",
             },
         ],
-        creator: "@LahiruMudith"
+            creator: "@LahiruMudith"
     },
     generator: "v0.app",
-    // Set local favicon for browser tab and search preview
     icons: {
-        icon: "../assets/favicon.ico",       // for browser tab
-        shortcut: "../assets/favicon.ico",   // for browser shortcut
-        apple: "../assets/favicon.ico",      // for Apple devices
+        icon: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",
+        shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+        apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
     },
     metadataBase: new URL("https://www.lahirumudith.me"),
     alternates: {
@@ -69,14 +68,13 @@ export default function RootLayout({
     return (
         <html lang="en">
         <head>
-            {/* Directly include favicon for extra reliability */}
-            {/*<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />*/}
+            {/*<link rel="icon" href="../assets/favicon.ico" type="image/x-icon"/>*/}
             {/* Optional: add PNG or SVG for more formats */}
              <link rel="icon" href="../assets/favicon.png" type="image/png" />
         </head>
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+        <Analytics/>
         </body>
         </html>
     )
