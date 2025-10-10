@@ -40,19 +40,20 @@ export const metadata: Metadata = {
         description: "Check out Lahiru Mudith's web development portfolio, projects, and contact details.",
         images: [
             {
-                url: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+                url: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",
                 width: 400,
                 height: 400,
                 alt: "Lahiru Mudith Logo",
             },
         ],
-            creator: "@LahiruMudith"
+        creator: "@LahiruMudith"
     },
     generator: "v0.app",
+    // Set local favicon for browser tab and search preview
     icons: {
-        icon: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
-        shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
-        apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+        icon: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",       // for browser tab
+        shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",   // for browser shortcut
+        apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",      // for Apple devices
     },
     metadataBase: new URL("https://www.lahirumudith.me"),
     alternates: {
@@ -67,6 +68,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+        <head>
+            {/* Directly include favicon for extra reliability */}
+            {/*<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />*/}
+            {/* Optional: add PNG or SVG for more formats */}
+             <link rel="icon" href="../assets/favicon.png" type="image/png" />
+        </head>
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
