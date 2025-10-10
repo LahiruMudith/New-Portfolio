@@ -1,6 +1,5 @@
 import type React from "react"
 import type { Metadata } from "next"
-import Image from "next/image"
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
@@ -61,20 +60,9 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode
 }>) {
-    return (
+    return (a
         <html lang="en">
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {/* Logo at the top, centered */}
-        <div className="flex justify-center items-center py-6">
-            <Image
-                src="https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png"
-                alt="Lahiru Mudith Logo"
-                width={80}
-                height={80}
-                className="rounded-full shadow-lg"
-                priority
-            />
-        </div>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
         </body>
