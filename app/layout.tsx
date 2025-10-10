@@ -60,7 +60,7 @@ export default function RootLayout({
                                    }: Readonly<{
     children: React.ReactNode
 }>) {
-    return (a
+    return (
         <html lang="en">
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
