@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     generator: "v0.app",
     // Set local favicon for browser tab and search preview
     icons: {
-        icon: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",       // for browser tab
-        shortcut: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",   // for browser shortcut
-        apple: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png",      // for Apple devices
+        icon: "/assets/favicon.ico",       // for browser tab
+        shortcut: "/assets/favicon.ico",   // for browser shortcut
+        apple: "/assets/favicon.ico",      // for Apple devices
     },
     metadataBase: new URL("https://www.lahirumudith.me"),
     alternates: {
