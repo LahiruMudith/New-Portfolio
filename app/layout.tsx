@@ -39,9 +39,14 @@ export const metadata: Metadata = {
         title: "Lahiru Mudith - Web Developer Portfolio",
         description: "Check out Lahiru Mudith's web development portfolio, projects, and contact details.",
         images: [
-            "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png"
+            {
+                url: "https://res.cloudinary.com/dkidles6w/image/upload/v1759949482/white_logo_piyl1z.png",
+                width: 400,
+                height: 400,
+                alt: "Lahiru Mudith Logo",
+            },
         ],
-        creator: "@yourtwitterhandle"
+            creator: "@LahiruMudith"
     },
     generator: "v0.app",
     icons: {
