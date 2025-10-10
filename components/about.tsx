@@ -66,10 +66,11 @@ export function About() {
                 <Card key={index} className="p-6 hover:shadow-lg transition-shadow duration-300 bg-card">
                   <div className="flex flex-col items-center text-center space-y-4">
                     <div className="w-32 h-32 rounded-lg bg-muted flex items-center justify-center overflow-hidden">
-                      <Image
+                      <img
                         src={item.logo || "/placeholder.svg"}
                         alt={item.institution}
                         className="w-full h-full object-contain"
+                        width={25}
                       />
                     </div>
                     <h3 className="text-lg font-semibold text-foreground">{item.institution}</h3>

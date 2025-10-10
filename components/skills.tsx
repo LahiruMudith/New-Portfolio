@@ -90,6 +90,16 @@ export function Skills() {
       url: "https://code.visualstudio.com/",
     },
     {
+      name: "Android Studio",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg",
+      url: "https://developer.android.com/studio",
+    },
+    {
+      name: "Postman",
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+      url: "https://www.postman.com/",
+    },
+    {
       name: "Figma",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
       url: "https://www.figma.com/",
@@ -127,7 +137,7 @@ export function Skills() {
                 className="group flex flex-col items-center gap-3 p-4 rounded-lg hover:bg-muted/50 transition-all duration-300"
               >
                 <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-muted group-hover:scale-110 transition-transform duration-300">
-                  <Image src={skill.icon || "/placeholder.svg"} alt={skill.name} className="w-12 h-12" />
+                  <img src={skill.icon || "/placeholder.svg"} alt={skill.name} className="w-12 h-12" />
                 </div>
                 <span className="text-xs text-center text-muted-foreground group-hover:text-foreground transition-colors">
                   {skill.name}
