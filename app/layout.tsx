@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
+
 export const metadata: Metadata = {
     title: "Lahiru Mudith | Web Developer Portfolio | IJSE Student",
     description:
