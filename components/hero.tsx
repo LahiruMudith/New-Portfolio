@@ -3,9 +3,34 @@
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
 import Image from "next/image"
+import { motion } from "motion/react"
+import TypeIt from "typeit";
+import {useEffect, useRef} from "react";
+
 
 export function Hero() {
-  return (
+    const textRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        if (textRef.current) {
+            new TypeIt(textRef.current, {
+                speed: 55,
+                waitUntilVisible: true, // 👈 Starts typing only when visible
+                afterComplete: (instance:any) => {
+                    instance.destroy(); // 👈 Clean up after finishing
+                },
+            })
+                .type("Hello, I'm Lahiru Mudith. ")
+                .pause(500)
+                .type("Student at IJSE. ")
+                .pause(400)
+                .type(
+                    "I craft tailored solutions for your unique needs. Let's collaborate to bring your web development vision to life!"
+                )
+                .go();
+        }
+    }, []);
+
+    return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="container mx-auto px-4 z-10 relative">
         <div className="max-w-4xl mx-auto text-center space-y-6">
@@ -30,11 +55,9 @@ export function Hero() {
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground font-light">Web Developer & IJSE Student</p>
           </div>
-
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Hello, I'm Lahiru Mudith. Student at IJSE. I craft tailored solutions for your unique needs. Let's
-            collaborate to bring your web development vision to life!
-          </p>
+            <div className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                <div ref={textRef}></div>
+            </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button asChild size="lg" className="min-w-[160px]">
