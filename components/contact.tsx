@@ -162,6 +162,7 @@ export function Contact() {
                   </div>
                   <div>
                     <Textarea
+                        className={'h-40'}
                         name="message"
                         placeholder="Your Message"
                         rows={5}
