@@ -5,9 +5,12 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github } from "lucide-react"
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+
 
 export function Projects() {
-  const projects = [
+    const { ref, isVisible } = useScrollAnimation(0.2)
+    const projects = [
     {
       title: "Fitness Center Management System",
       description:
@@ -73,52 +76,60 @@ export function Projects() {
     },
   ]
 
-  return (
-    <section id="projects" className="py-24 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Featured Projects</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              A collection of projects I've built to solve real-world problems
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden group hover:shadow-xl transition-shadow duration-300">
-                <div className="relative h-48 bg-muted overflow-hidden">
-                  <img
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                </div>
-                <div className="p-6 space-y-4">
-                  <div className="space-y-2">
-                    <div className="flex items-start justify-between gap-4">
-                      <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <Badge variant="secondary">{project.tech}</Badge>
+    return (
+        <section id="projects" ref={ref} className="py-24 bg-muted/30">
+            <div className="container mx-auto px-4">
+                <div className="max-w-6xl mx-auto">
+                    <div
+                        className={`text-center mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Featured Projects</h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            A collection of projects I've built to solve real-world problems
+                        </p>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{project.description}</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button asChild variant="outline" size="sm">
-                      <a href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Github className="mr-2 h-4 w-4" />
-                        View Code
-                      </a>
-                    </Button>
-                  </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {projects.map((project, index) => (
+                            <Card
+                                key={index}
+                                className={`overflow-hidden group hover:shadow-xl transition-all duration-700 ${
+                                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                                }`}
+                                style={{ transitionDelay: `${200 + index * 100}ms` }}
+                            >
+                                <div className="relative h-48 bg-muted overflow-hidden">
+                                    <img
+                                        src={project.image || "/placeholder.svg"}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+                                </div>
+                                <div className="p-6 space-y-4">
+                                    <div className="space-y-2">
+                                        <div className="flex items-start justify-between gap-4">
+                                            <h3 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                                                {project.title}
+                                            </h3>
+                                            <Badge variant="secondary">{project.tech}</Badge>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">{project.description}</p>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <Button asChild variant="outline" size="sm">
+                                            <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                                <Github className="mr-2 h-4 w-4" />
+                                                View Code
+                                            </a>
+                                        </Button>
+                                    </div>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
                 </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+            </div>
+        </section>
+    )
 }

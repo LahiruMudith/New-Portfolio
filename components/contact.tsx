@@ -7,11 +7,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone, Github, Facebook, Instagram, Linkedin } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+
 
 export function Contact() {
   const form = useRef<HTMLFormElement>(null);
 
-  const contactInfo = [
+    const { ref, isVisible } = useScrollAnimation(0.2)
+
+
+    const contactInfo = [
     {
       icon: Phone,
       label: "076 129 8256",
@@ -83,10 +88,10 @@ export function Contact() {
   };
 
   return (
-      <section id="contact" className="py-24 bg-background">
+      <section id="contact" ref={ref} className="py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
+            <div className={`text-center mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Have a project in mind? Let's work together to bring your ideas to life
@@ -95,7 +100,7 @@ export function Contact() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Info */}
-              <div className="space-y-6">
+              <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
                 <div className="space-y-4">
                   {contactInfo.map((item, index) => (
                       <a
@@ -134,7 +139,7 @@ export function Contact() {
               </div>
 
               {/* Contact Form */}
-              <Card className="p-6">
+              <Card className={`p-6 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
                 <form ref={form} onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Input
@@ -175,7 +180,7 @@ export function Contact() {
             </div>
 
             {/* Footer */}
-            <div className="mt-16 pt-8 border-t border-border text-center">
+            <div className={`mt-16 pt-8 border-t border-border text-center transition-all duration-700 delay-600 ${isVisible ? "opacity-100" : "opacity-0"}`}>
               <p className="text-sm text-muted-foreground">
                 © 2025 Lahiru Mudith — Designed with 💡 and coded with ❤️. All rights reserved.
               </p>

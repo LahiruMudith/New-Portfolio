@@ -1,9 +1,12 @@
 "use client"
 
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 export function Skills() {
-  const skills = [
+    const { ref, isVisible } = useScrollAnimation(0.2)
+
+    const skills = [
     {
       name: "Java",
       icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
@@ -116,37 +119,43 @@ export function Skills() {
     },
   ]
 
-  return (
-    <section id="skills" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Skills & Technologies</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Technologies and tools I work with to bring ideas to life
-            </p>
-          </div>
+    return (
+        <section id="skills" ref={ref} className="py-24 bg-background">
+            <div className="container mx-auto px-4">
+                <div className="max-w-6xl mx-auto">
+                    <div
+                        className={`text-center mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+                    >
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Skills & Technologies</h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            Technologies and tools I work with to bring ideas to life
+                        </p>
+                    </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8">
-            {skills.map((skill, index) => (
-              <a
-                key={index}
-                href={skill.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-3 p-4 rounded-lg hover:bg-muted/50 transition-all duration-300"
-              >
-                <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-muted group-hover:scale-110 transition-transform duration-300">
-                  <img src={skill.icon || "/placeholder.svg"} alt={skill.name} className="w-12 h-12" />
-                </div>
-                <span className="text-xs text-center text-muted-foreground group-hover:text-foreground transition-colors">
+                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8">
+                        {skills.map((skill, index) => (
+                            <a
+                                key={index}
+                                href={skill.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`group flex flex-col items-center gap-3 p-4 rounded-lg hover:bg-muted/50 transition-all duration-700 ${
+                                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                                }`}
+                                style={{ transitionDelay: `${200 + index * 50}ms` }}
+                            >
+                                <div className="w-16 h-16 flex items-center justify-center rounded-lg bg-muted group-hover:scale-110 transition-transform duration-300">
+                                    <img src={skill.icon || "/placeholder.svg"} alt={skill.name} className="w-12 h-12" />
+                                </div>
+                                <span className="text-xs text-center text-muted-foreground group-hover:text-foreground transition-colors">
                   {skill.name}
                 </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
 }
+
