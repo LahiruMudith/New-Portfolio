@@ -21,19 +21,14 @@ export function Hero() {
     useEffect(() => {
         if (textRef.current) {
             new TypeIt(textRef.current, {
-                speed: 55,
+                speed: 150,
                 waitUntilVisible: true, // 👈 Starts typing only when visible
                 afterComplete: (instance:any) => {
                     instance.destroy(); // 👈 Clean up after finishing
                 },
             })
-                .type("Hello, I'm Lahiru Mudith. ")
-                .pause(500)
-                .type("Student at IJSE. ")
-                .pause(400)
-                .type(
-                    "I craft tailored solutions for your unique needs. Let's collaborate to bring your web development vision to life!"
-                )
+                .type("I'm Lahiru Mudith ")
+                .pause(1000)
                 .go();
         }
     }, []);
@@ -47,7 +42,8 @@ export function Hero() {
                 className={`flex justify-center mb-8 mt-[20%] md:mt-0 transition-all duration-700 ${
                     imageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
-            >            <div className="relative w-48 h-48 md:w-56 md:h-56">
+            >
+                <div className="relative w-48 h-48 md:w-56 md:h-56">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse" />
               <Image
                 src="https://res.cloudinary.com/dkidles6w/image/upload/v1759929712/2025_05_23_14_40_IMG_4830-Enhanced-SR_pyi6at.jpg"
@@ -66,15 +62,17 @@ export function Hero() {
                }`}>
             <p className="text-transparent text-sm font-medium tracking-wider uppercase">Welcome</p>
             <h1 className="text-5xl md:text-7xl font-bold text-foreground">
-              I'm <span className="text-primary">Lahiru Mudith</span>
+              {/*I'm <span className="text-primary">Lahiru Mudith</span>*/}
+                <div className={"text-primary"} ref={textRef}></div>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-light">Web Developer & IJSE Student</p>
+            <p className="text-xl md:text-2xl text-muted-foreground font-light">Web Developer & Vide Editor</p>
           </div>
             <div ref={descriptionRef}
                  className={`text-muted-foreground max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
                      descriptionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                  }`}>
-                <div ref={textRef}></div>
+                <p>Hello, I'm Lahiru Mudith Student at IJSE.I craft tailored solutions for your unique needs. Let's collaborate to bring your web development vision to life!</p>
+                {/*<div ref={textRef}></div>*/}
             </div>
 
           <div ref={buttonsRef}
