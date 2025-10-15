@@ -7,7 +7,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Suspense } from "react"
 import "./globals.css"
 
-
 export const metadata: Metadata = {
     title: "Lahiru Mudith | Web Developer Portfolio | IJSE Student",
     description:
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
                 alt: "Lahiru Mudith Logo",
             },
         ],
-            creator: "@LahiruMudith"
+        creator: "@LahiruMudith"
     },
     generator: "v0.app",
     icons: {
@@ -73,11 +72,12 @@ export default function RootLayout({
             {/*<link rel="icon" href="../assets/favicon.ico" type="image/x-icon"/>*/}
             {/* Optional: add PNG or SVG for more formats */}
             {/* <link rel="icon" href="../assets/favicon.png" type="image/png"/>*/}
+            <meta name="google-adsense-account" content="ca-pub-6959983258605789" />
         </head>
         <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
-        <Analytics/>
-        <SpeedInsights/>
+        <Analytics />
+        <SpeedInsights />
         </body>
         </html>
     )
