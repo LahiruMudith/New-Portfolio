@@ -65,7 +65,7 @@ export function Hero() {
               {/*I'm <span className="text-primary">Lahiru Mudith</span>*/}
                 <div className={"text-primary"} ref={textRef}></div>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground font-light">Web Developer & Vide Editor</p>
+            <p className="text-xl md:text-2xl text-muted-foreground font-light">Web Developer & Video Editor</p>
           </div>
             <div ref={descriptionRef}
                  className={`text-muted-foreground max-w-2xl mx-auto leading-relaxed transition-all duration-700 delay-200 ${
