@@ -46,7 +46,7 @@ export function Hero() {
                 <div className="relative w-48 h-48 md:w-56 md:h-56">
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse" />
               <Image
-                src="https://res.cloudinary.com/dkidles6w/image/upload/v1759929712/2025_05_23_14_40_IMG_4830-Enhanced-SR_pyi6at.jpg"
+                src="https://res.cloudinary.com/dkidles6w/image/upload/v1763223904/2025_05_23_14_40_IMG_4830-Enhanced-SR_pyi6at.jpg"
                 alt="Lahiru Mudith"
                 width={224}
                 height={224}
