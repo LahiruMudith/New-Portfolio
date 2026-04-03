@@ -3,14 +3,51 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Github } from "lucide-react"
+import { Github, ExternalLink, ChevronUp, ChevronDown } from "lucide-react"
 import Image from "next/image";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
+import { useState } from "react"
+import { motion, AnimatePresence, Variants } from "framer-motion"
 
 export function Projects() {
     const { ref, isVisible } = useScrollAnimation<HTMLDivElement>(0.2)
 
+    const [showAll, setShowAll] = useState(false)
+
     const projects = [
+        {
+            title: "Election Management System",
+            description:
+                "A comprehensive platform for modern election administration. This system facilitates secure voter registration, candidate profiling, precise results tabulation, and robust audit trails. It provides real-time progress updates, enables multi-factor authentication for administrators, and visualizes historical voting patterns. Voter data privacy is a central tenet.",
+            tech: "React, Spring Boot, MySQL, Cloudinary, JWT, Tailwind CSS",
+            github: "https://github.com/YourUsername/election-management-system.git",
+            image: "/election-management-ui.png",
+        },
+        {
+            title: "MERN Stack E-Commerce Site",
+            description:
+                "A specialized e-commerce platform for premium sewing machines and expert repair services. The system features secure user authentication via JWT tokens and implements Role-Based Access Control (RBAC) to distinguish between customer shopping experiences and administrative inventory management. It includes a responsive product catalog, a 'Pro Series' showcase, and an integrated showroom booking system.",
+            tech: "React, Node.js, MongoDB, Express, JWT, Tailwind CSS, PayHere, SendMail, Cloudinary",
+            github: "https://github.com/LahiruMudith/mack-trading-fn.git",
+            live: "https://your-demo-link.com",
+            image: "/mack-trading-ui.png",
+        },
+        {
+            title: "Python Group Word",
+            description:
+                "A collaborative text editing application for teams. This web-based solution supports real-time concurrent editing, version history, inline commenting, and robust user role permissions. It features integrated Python-based text analysis tools for grammar, sentiment, and keyword extraction. Secure document storage is provided.",
+            tech: "Python, Pandas, NumPy, Matplotlib",
+            github: "https://github.com/YourUsername/python-group-word.git",
+            image: "/python-project.png",
+        },
+        {
+            title: "Gravity Flip Game",
+            description:
+                "A fast-paced puzzle platformer game. The core mechanic revolves around the player's ability to invert gravity at will to navigate complex, vertical, and horizontal obstacle-laden levels. Features include intuitive controls, procedural level generation for infinite replayability, online leaderboards, and multiple game modes. It challenges player spatial reasoning.",
+            tech: "React Native, Expo, Firebase, Cloudinary",
+            github: "https://github.com/YourUsername/gravity-flip.git",
+            image: "/gravity-flip-game.png",
+        },
         {
             title: "Fitness Center Management System",
             description:
@@ -76,60 +113,117 @@ export function Projects() {
         },
     ]
 
+    const visibleProjects = showAll ? projects : projects.slice(0, 4)
+
+    const containerVariants: Variants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1, // Each card follows the other
+            },
+        },
+    }
+
+    const cardVariants: Variants = {
+        hidden: { opacity: 0, y: 30, scale: 0.95 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { duration: 0.5, ease: "easeOut" }
+        }
+    }
 
     return (
-        <section id="projects" ref={ref} className="py-8 sm:py-16 bg-muted/30">
-            <div className="container mx-auto px-2 max-w-xs sm:max-w-2xl md:max-w-6xl">
-                <div>
-                    <div
-                        className={`text-center mb-6 sm:mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-                    >
-                        <h2 className="text-xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2 sm:mb-4">Featured Projects</h2>
-                        <p className="text-xs sm:text-base text-muted-foreground max-w-xs sm:max-w-2xl mx-auto">
-                            A collection of projects I've built to solve real-world problems
-                        </p>
-                    </div>
+        <section id="projects" className="py-12 sm:py-20 bg-muted/30 overflow-hidden">
+            <div className="container mx-auto px-4 max-w-6xl">
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6">
-                        {projects.map((project, index) => (
-                            <Card
-                                key={index}
-                                className={`overflow-hidden group hover:shadow-xl transition-all duration-700 ${
-                                    isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                                }`}
-                                style={{ transitionDelay: `${200 + index * 100}ms` }}
+                {/* Header Animation */}
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.3 }} // once: false makes it repeat
+                    className="text-center mb-12"
+                >
+                    <h2 className="text-2xl sm:text-4xl font-bold mb-4">Featured Projects</h2>
+                    <p className="text-muted-foreground">Hand-crafted solutions and experiments</p>
+                </motion.div>
+
+                {/* The Showering Grid */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.1 }} // Trigger whenever section is visible
+                    className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                >
+                    <AnimatePresence mode="popLayout">
+                        {visibleProjects.map((project, index) => (
+                            <motion.div
+                                key={project.title}
+                                layout // Smoothly moves existing cards when list expands
+                                variants={cardVariants}
+                                // These handle the "Show All" click animations
+                                initial="hidden"
+                                animate="visible"
+                                exit={{ opacity: 0, scale: 0.9 }}
                             >
-                                <div className="relative h-32 sm:h-48 bg-muted overflow-hidden">
-                                    <img
-                                        src={project.image || "/placeholder.svg"}
-                                        alt={project.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                                </div>
-                                <div className="p-3 sm:p-6 space-y-2 sm:space-y-4">
-                                    <div className="space-y-1 sm:space-y-2">
-                                        <div className="flex items-start justify-between gap-2 sm:gap-4">
-                                            <h3 className="text-base sm:text-xl font-semibold text-foreground group-hover:text-primary transition-colors">
-                                                {project.title}
-                                            </h3>
-                                            <Badge variant="secondary" className="text-[10px] sm:text-xs">{project.tech}</Badge>
+                                <Card className="overflow-hidden group hover:shadow-2xl transition-all duration-500 h-full flex flex-col border-none bg-background/50 backdrop-blur-sm">
+                                    <div className="relative h-52 overflow-hidden">
+                                        <img
+                                            src={project.image || "/placeholder.svg"}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </div>
+
+                                    <div className="p-6 flex flex-col flex-grow space-y-4">
+                                        <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                                            {project.title}
+                                        </h3>
+                                        <p className="text-sm text-muted-foreground line-clamp-3">
+                                            {project.description}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {project.tech.split(', ').map((t) => (
+                                                <Badge key={t} variant="secondary" className="bg-primary/10 text-primary border-none text-[10px]">
+                                                    {t}
+                                                </Badge>
+                                            ))}
                                         </div>
-                                        <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed line-clamp-3">{project.description}</p>
+                                        <div className="pt-4 mt-auto">
+                                            <Button asChild variant="outline" size="sm" className="rounded-full gap-2 group-hover:bg-primary group-hover:text-white transition-all">
+                                                <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                                    <Github className="h-4 w-4" /> Source Code
+                                                </a>
+                                            </Button>
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-1 sm:gap-2">
-                                        <Button asChild variant="outline" size="sm" className="text-[10px] sm:text-xs px-2 sm:px-4 py-1 sm:py-2">
-                                            <a href={project.github} target="_blank" rel="noopener noreferrer">
-                                                <Github className="mr-1 sm:mr-2 h-3 sm:h-4 w-3 sm:w-4" />
-                                                View Code
-                                            </a>
-                                        </Button>
-                                    </div>
-                                </div>
-                            </Card>
+                                </Card>
+                            </motion.div>
                         ))}
-                    </div>
-                </div>
+                    </AnimatePresence>
+                </motion.div>
+
+                {/* Interaction Button */}
+                <motion.div
+                    layout
+                    className="mt-16 flex justify-center"
+                >
+                    <Button
+                        onClick={() => setShowAll(!showAll)}
+                        variant="ghost"
+                        className="group relative flex items-center justify-center gap-2 text-lg font-medium hover:bg-transparent"
+                    >
+                        <span className="relative z-10 flex items-center justify-center gap-2">
+                            {showAll ? "View Less" : "Explore All"}
+                            {showAll ? <ChevronUp className="h-5 w-5 animate-bounce" /> : <ChevronDown className="h-5 w-5 animate-bounce" />}
+                        </span>
+                        <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+                    </Button>
+                </motion.div>
             </div>
         </section>
     )
