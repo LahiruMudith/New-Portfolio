@@ -8,13 +8,15 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-    title: "Lahiru Mudith | Web Developer Portfolio | IJSE Student",
+    title: "Lahiru Mudith | Full Stack Developer Portfolio | IJSE Student",
     description:
-        "Lahiru Mudith - Web developer, freelancer on Fiverr and student at IJSE. Check out my projects, skills, and contact details.",
+        "Lahiru Mudith - Full Stack developer, freelancer on Fiverr and student at IJSE. Check out my projects, skills, and contact details.",
     keywords: [
         "Lahiru Mudith",
         "IJSE Student",
-        "Web Developer",
+        "Full Stack Developer",
+        "Backend Developer",
+        "IJSE Student",
         "Fiverr Freelancer",
         "Portfolio",
         "HTML CSS JS",
@@ -62,23 +64,23 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
+    children,
+}: Readonly<{
     children: React.ReactNode
 }>) {
     return (
         <html lang="en">
-        <head>
-            {/*<link rel="icon" href="../assets/favicon.ico" type="image/x-icon"/>*/}
-            {/* Optional: add PNG or SVG for more formats */}
-            {/* <link rel="icon" href="../assets/favicon.png" type="image/png"/>*/}
-            <meta name="google-adsense-account" content="ca-pub-6959983258605789" />
-        </head>
-        <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
-        <SpeedInsights />
-        </body>
+            <head>
+                {/*<link rel="icon" href="../assets/favicon.ico" type="image/x-icon"/>*/}
+                {/* Optional: add PNG or SVG for more formats */}
+                {/* <link rel="icon" href="../assets/favicon.png" type="image/png"/>*/}
+                <meta name="google-adsense-account" content="ca-pub-6959983258605789" />
+            </head>
+            <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+                <Suspense fallback={null}>{children}</Suspense>
+                <Analytics />
+                <SpeedInsights />
+            </body>
         </html>
     )
 }
