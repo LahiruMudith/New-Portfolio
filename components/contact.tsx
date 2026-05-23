@@ -62,7 +62,7 @@ export function Contact() {
 
     try {
       await emailjs.sendForm(
-          "service_5xj1jha",
+          "service_6dja5i8",
           "template_wsijj9s",
           form.current!,
           "gk8PqCkZ5sK6eL22o"
