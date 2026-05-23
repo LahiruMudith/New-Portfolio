@@ -16,7 +16,6 @@ export const metadata: Metadata = {
         "IJSE Student",
         "Full Stack Developer",
         "Backend Developer",
-        "IJSE Student",
         "Fiverr Freelancer",
         "Portfolio",
         "HTML CSS JS",
