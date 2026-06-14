@@ -5,45 +5,12 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone, Github, Facebook, Instagram, Linkedin } from "lucide-react";
 import emailjs from "@emailjs/browser";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-
+import { AnimatedSection } from "@/components/animated-section"
+import { contactInfo, socialLinks } from "@/data/portfolio"
 
 export function Contact() {
   const form = useRef<HTMLFormElement>(null);
-
-    const { ref, isVisible } = useScrollAnimation(0.2)
-
-
-    const contactInfo = [
-    {
-      icon: Phone,
-      label: "076 129 8256",
-      href: "tel:+94761298256",
-    },
-    {
-      icon: MapPin,
-      label: "Moronthuduwa, Sri Lanka",
-      href: "https://maps.app.goo.gl/AJB9jjKbvKn6xQPq8",
-    },
-    {
-      icon: Mail,
-      label: "lahimudith@gmail.com",
-      href: "mailto:lahimudith@gmail.com",
-    },
-  ];
-
-  const socialLinks = [
-    { icon: Github, href: "https://github.com/LahiruMudith", label: "GitHub" },
-    { icon: Facebook, href: "https://www.facebook.com/share/1DKxM5JE3y/?mibextid=wwXIfr", label: "Facebook" },
-    {
-      icon: Instagram,
-      href: "https://www.instagram.com/lahiru_mudith_madushan?igsh=a2k3cGUyem9jaWg5&utm_source=qr",
-      label: "Instagram",
-    },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/lahiru-mudith-1226b7298/", label: "LinkedIn" },
-  ];
 
   const [formData, setFormData] = useState({
     name: "",
@@ -88,19 +55,19 @@ export function Contact() {
   };
 
   return (
-      <section id="contact" ref={ref} className="py-6 bg-background">
+      <section id="contact" className="py-6 bg-background overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className={`text-center mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            <AnimatedSection delay={0} direction="up" className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Have a project in mind? Let's work together to bring your ideas to life
               </p>
-            </div>
+            </AnimatedSection>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Contact Info */}
-              <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
+              <AnimatedSection delay={0.2} direction="left" className="space-y-6">
                 <div className="space-y-4">
                   {contactInfo.map((item, index) => (
                       <a
@@ -136,10 +103,11 @@ export function Contact() {
                     ))}
                   </div>
                 </div>
-              </div>
+              </AnimatedSection>
 
               {/* Contact Form */}
-              <Card className={`p-6 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
+              <AnimatedSection delay={0.4} direction="right" className="h-full">
+              <Card className="p-6 h-full">
                 <form ref={form} onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Input
@@ -178,14 +146,15 @@ export function Contact() {
                   {error && <div className="text-red-600">{error}</div>}
                 </form>
               </Card>
+              </AnimatedSection>
             </div>
 
             {/* Footer */}
-            <div className={`mt-16 pt-8 border-t border-border text-center transition-all duration-700 delay-600 ${isVisible ? "opacity-100" : "opacity-0"}`}>
+            <AnimatedSection delay={0.6} direction="up" className="mt-16 pt-8 border-t border-border text-center">
               <p className="text-sm text-muted-foreground">
                 © 2025 Lahiru Mudith — Designed with 💡 and coded with ❤️. All rights reserved.
               </p>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>

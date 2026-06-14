@@ -24,15 +24,34 @@ export function Navigation() {
     { label: "Contact", href: "#contact" },
   ]
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      // Offset by 80px to account for the fixed header height
+      const offsetTop = elem.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+      setIsMobileMenuOpen(false);
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background/80 backdrop-blur-lg border-b border-border shadow-sm shadow-primary/5" : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="#home" className="text-xl font-bold text-foreground hover:text-primary transition-colors">
-          <img src={"https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png"} width={30}/>
+        <a 
+          href="#home" 
+          onClick={(e) => handleScrollTo(e, "#home")}
+          className="text-xl font-bold text-foreground hover:text-primary transition-colors cursor-pointer"
+        >
+          <img src={"https://res.cloudinary.com/dkidles6w/image/upload/v1759949285/white_logo_qrnnod.png"} alt="Logo" width={30}/>
         </a>
 
         {/* Desktop Navigation */}
@@ -41,7 +60,8 @@ export function Navigation() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              onClick={(e) => handleScrollTo(e, item.href)}
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             >
               {item.label}
             </a>
@@ -61,14 +81,14 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border">
+        <div className="md:hidden bg-background border-b border-border absolute w-full left-0">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleScrollTo(e, item.href)}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors p-2 rounded-md hover:bg-muted/50 cursor-pointer"
               >
                 {item.label}
               </a>
@@ -79,3 +99,4 @@ export function Navigation() {
     </header>
   )
 }
+
